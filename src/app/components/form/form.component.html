@@ -1,0 +1,65 @@
+<!-- <p>form works!</p>
+{{marcas | json}}
+
+<br>
+{{modelos | json}} -->
+
+<!-- <select [(ngModel)]="selectedCar.name" (change)="onSelect($event)">
+    <option *ngFor="let marca of marcas" value={{marca.id}}>
+        {{marca.name}}
+    </option>
+</select>
+<br>
+<select>
+    <option *ngFor="let modelo of modelos" value={{modelo.marcaId}}>
+        {{modelo.name}}
+    </option>
+</select> -->
+
+    <div *ngIf="showAlert" class="alert alert-dark text-center" role="alert">
+    Debes completar todos los campos.
+    </div>
+
+    <div class="mb-3 text-center">
+        <h1>Examen de Prueba</h1>
+    </div>
+    
+  <div class="mb-3" >
+        <label for="exampleFormControlInput1" class="form-label dark">Marca del carro</label>
+        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" [(ngModel)]="selectedMarca.name"  (change)="carroSeleccionado($event)">
+            <option *ngFor="let marca of marcas" value={{marca.name}} >
+                {{marca.name}}
+            </option>
+        </select>
+
+      <label for="exampleFormControlInput1" class="form-label">Modelo del carro</label>
+      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" [(ngModel)]="selectedModel.name" >
+        <option *ngFor="let modelo of modelos" value={{modelo.name}}>
+            {{modelo.name}}
+        </option>
+      </select>
+  </div>
+
+
+  <div class="d-grid gap-2">
+    <button class="btn btn-dark" type="button"  (click)="agregarCarro()">Guardar</button>
+    <!-- <label>{{ textoMostrado }} {{ textoMostrado2 }}</label> -->
+  </div>
+
+  <div class="d-grid gap-2">
+    <table class="table table-dark table-striped-columns my-4">
+        <thead>
+            <tr>
+                <th>Marca</th>
+                <th>Modelo</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items">
+            <td>{{ item.marca }}</td>
+            <td >{{ item.modelo }}</td>
+          </tr>
+        </tbody>
+      </table>
+    
+  </div>
